@@ -32,7 +32,7 @@
                                 (削除済み)
                             </c:when>
                             <c:otherwise>
-                                <a href= "<c:url value='?action=${actEmp }&command=${commShow }&id=${employee.id }' />">
+                                <a href= "<c:url value='?action=${actEmp}&command=${commShow}&id=${employee.id}' />">
                                     詳細をみる
                                 </a>
                             </c:otherwise>

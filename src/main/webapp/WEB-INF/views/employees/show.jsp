@@ -6,7 +6,7 @@
 
 <c:set var="actEmp" value= "${ForwardConst.ACT_EMP.getValue() }" />
 <c:set var= "commIdx" value= "${ForwardConst.CMD_INDEX.getValue() }" />
-<c:set var= "commEdit" value= "${ForwqrdConst.CMD_DEIT.getvalue() }" />
+<c:set var= "commEdit" value= "${ForwardConst.CMD_EDIT.getValue() }" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -44,7 +44,7 @@
     </table>
 
     <p>
-        <a href= "<c:url value='?action=${actEmp }&command=${commEdit }&id=${employee.id }'/>">この従業員情報を編集する</a>
+        <a href="<c:url value='?action=${actEmp}&command=${commEdit}&id=${employee.id}' />">この従業員情報を編集する</a>
     </p>
 
     <p>
