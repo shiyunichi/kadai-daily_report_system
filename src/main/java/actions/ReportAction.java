@@ -49,10 +49,10 @@ public class ReportAction extends ActionBase {
         //全日報データの件数を取得
         long reportsCount = service.countAll();
 
-        putRequestScope(AttributeConst.REPORTS, reports);
-        putRequestScope(AttributeConst.REP_COUNT, reportsCount);
-        putRequestScope(AttributeConst.PAGE, page);
-        putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE);
+        putRequestScope(AttributeConst.REPORTS, reports); //取得した日報データ
+        putRequestScope(AttributeConst.REP_COUNT, reportsCount); //全ての日報データの件数
+        putRequestScope(AttributeConst.PAGE, page); //ページ数
+        putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
 
         //セッションにフラッシュメッセージが設定されている場合はリクエストスコープに移し替え、セッションからは削除する
         String flush = getSessionScope(AttributeConst.FLUSH);
@@ -77,7 +77,7 @@ public class ReportAction extends ActionBase {
         //日報情報の空インスタンスに、日報の日付＝今日の日付を設定する
         ReportView rv = new ReportView();
         rv.setReportDate(LocalDate.now());
-        putRequestScope(AttributeConst.REPORT, rv);
+        putRequestScope(AttributeConst.REPORT, rv); //日付のみ設定済みの日報インスタンス
 
         //新規登録画面を表示
         forward(ForwardConst.FW_REP_NEW);
@@ -120,9 +120,9 @@ public class ReportAction extends ActionBase {
             if(errors.size() > 0) {
                 //登録中にエラーがあった場合
 
-                putRequestScope(AttributeConst.TOKEN, getTokenId());
-                putRequestScope(AttributeConst.REPORT, rv);
-                putRequestScope(AttributeConst.ERR, errors);
+                putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策トークン
+                putRequestScope(AttributeConst.REPORT, rv);  //入力された日報情報
+                putRequestScope(AttributeConst.ERR, errors); //エラーのリスト
 
                 //新規登録画面を再表示
                 forward(ForwardConst.FW_REP_NEW);
