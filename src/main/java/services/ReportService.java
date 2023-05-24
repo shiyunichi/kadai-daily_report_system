@@ -123,7 +123,7 @@ public class ReportService extends ServiceBase {
     /**
      * idを条件にデータを1件取得する
      * @param id
-     * @return 湯特データのインスタンス
+     * @return 取得データのインスタンス
      */
     private Report findOneInternal(int id) {
         return em.find(Report.class, id);
